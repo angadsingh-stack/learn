@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2563eb">
+  <title>LearnSphere | E-Learning Platform</title>
+  <meta name="description" content="Learn programming with online courses, quizzes, learning progress, and certificates on LearnSphere.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Authentication -->
+  <section id="authScreen" class="auth-screen">
+    <div class="auth-brand">
+      <div class="brand-icon">L</div>
+      <span>LearnSphere</span>
+    </div>
+
+    <div class="auth-card">
+      <div class="auth-heading">
+        <span class="eyebrow">YOUR LEARNING JOURNEY</span>
+        <h1 id="authTitle">Welcome back!</h1>
+        <p id="authSubtitle">Sign in to continue learning.</p>
+      </div>
+
+      <form id="authForm">
+        <div id="nameField" class="form-group hidden">
+          <label for="authName">Full name</label>
+          <input id="authName" type="text" placeholder="Enter your name"
+                 autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label for="authEmail">Email address</label>
+          <input id="authEmail" type="email" placeholder="you@example.com"
+                 autocomplete="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="authPassword">Password</label>
+          <input id="authPassword" type="password"
+                 placeholder="At least 6 characters"
+                 minlength="6" autocomplete="current-password" required>
+        </div>
+
+        <p id="authError" class="error-message" role="alert"></p>
+        <button class="btn btn-primary full-width" type="submit"
+                id="authSubmit">Sign In</button>
+      </form>
+
+      <p class="auth-switch">
+        <span id="switchText">Don't have an account?</span>
+        <button id="switchAuth" class="text-button" type="button">Sign Up</button>
+      </p>
+      <p class="demo-note">Demo project · Account data stays in this browser</p>
+    </div>
+  </section>
+
+  <!-- Main application -->
+  <div id="appScreen" class="app-shell hidden">
+    <aside class="sidebar" id="sidebar">
+      <a href="#" class="brand" data-page="dashboard">
+        <span class="brand-icon">L</span>
+        <span>LearnSphere</span>
+      </a>
+
+      <p class="nav-label">WORKSPACE</p>
+      <nav class="nav-menu" aria-label="Main navigation">
+        <button class="nav-item active" data-page="dashboard">
+          <span>▦</span> Dashboard
+        </button>
+        <button class="nav-item" data-page="courses">
+          <span>▤</span> Explore Courses
+        </button>
+        <button class="nav-item" data-page="watchlist">
+          <span>♡</span> My Watchlist
+        </button>
+        <button class="nav-item" data-page="quiz">
+          <span>☑</span> Quiz Center
+        </button>
+        <button class="nav-item" data-page="certificates">
+          <span>♧</span> Certificates
+        </button>
+        <button class="nav-item" data-page="notifications">
+          <span>♧</span> Notifications
+          <span id="notificationCount" class="nav-count hidden">0</span>
+        </button>
+      </nav>
+
+      <p class="nav-label">PERSONAL</p>
+      <nav class="nav-menu" aria-label="Personal navigation">
+        <button class="nav-item" data-page="profile">
+          <span>◉</span> My Profile
+        </button>
+        <button class="nav-item" data-page="contact">
+          <span>✉</span> Contact Us
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-help">
+          <span class="help-icon">✦</span>
+          <strong>Keep learning!</strong>
+          <p>Small steps lead to big achievements.</p>
+        </div>
+        <button id="logoutBtn" class="nav-item logout-button">
+          <span>↪</span> Log Out
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button id="menuToggle" class="icon-button mobile-menu"
+                aria-label="Toggle navigation">☰</button>
+        <div class="breadcrumb">Learning / <strong id="pageCrumb">Dashboard</strong></div>
+        <div class="topbar-right">
+          <button class="icon-button" data-goto="notifications"
+                  aria-label="Notifications">♧</button>
+          <button class="user-chip" data-goto="profile">
+            <span id="headerAvatar" class="avatar">S</span>
+            <span id="headerName">Student</span>
+          </button>
+        </div>
+      </header>
+
+      <div id="pageContent" class="page-content"></div>
+      <footer class="footer">© 2026 LearnSphere · Built for learners</footer>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
